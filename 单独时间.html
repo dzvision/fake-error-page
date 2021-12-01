@@ -1,0 +1,581 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="//time.tianqistatic.com/static/css/basis.css"> -->
+    <link rel="stylesheet" href="http://time.tianqi.com/static/css/basis.css">
+    <link rel="stylesheet" href="http://time.tianqi.com/static/css/timeIndex.css">
+    <link rel="stylesheet" href="http://time.tianqi.com/static/css/time.css">
+    <title>时间校准_北京时间校准_北京时间在线校准_现在北京时间</title>
+    <meta name="keywords" content="时间校准,北京时间">
+    <meta name="description" content="天气网时差频道（time.tianqi.com）介绍中国北京时间，北京时间在线校准，北京现在时间：2021-12-01 10:31:52。查世界各大城市时差，知最新时间，来天气网时差频道。">
+    <script src="http://time.tianqistatic.com/static/js/nofind.js"></script>
+    <script src="http://time.tianqistatic.com/static/js/gg.js"></script>
+
+</head>
+<body onLoad="UpdateClocks();">
+
+
+
+
+<!--主体部分开始-->
+<div class="container main">
+    <!--面包屑开始-->
+    <div class="crumbs">
+        <h4>您所在的位置：北京时间</h4>
+    </div>
+    <!--面包屑结束-->
+    <div class="wrapbox banner_top" style="width: 1024px; margin: 0 auto;margin-top: 10px">
+        <script>time_01()</script>
+    </div>
+    <!--左边部分开始-->
+    <div class="left">
+        <!--北京时间在线校准开始-->
+        <div class="diff">
+            <div class="hotTitle">
+                北京时间在线校准
+            </div>
+        </div>
+        <div class="time_box_detailinfo">
+            <div class="time_date">
+                <p>中国 china 北京 时间 </p>
+                <div>
+                    <p class="hour_box">10</p><span>：</span><p class="minute_box">31</p><span>：</span><p class="seconds_box">52</p>
+                </div>
+                <span>2021年12月01日,星期三</span>
+            </div>
+            <div class="detail_info">
+                <p><span>所属时区：</span><span>UTC/GMT+8小时（东八区） </span></p>
+                <p><span>经度/纬度：</span><span>东经+116°20/ 北纬-39°56 </span></p>
+                <p><span>国家区号：</span><span>+86(中国) </span></p>
+                <p><span>地区区号:</span><span>10</span></p>
+                <p><span>电脑时间:</span><span class="computed_time">2021-12-01 10:31:52</span></p>
+                <p><span>和北京时间差:</span><span>无差别</span></p>
+            </div>
+        </div>
+        <div><script>time_760_01()</script></div>
+        <!--北京时间在线校准结束-->
+
+
+    </div>
+    <!--左边部分结束-->
+
+    <div class="clear"></div>
+</div>
+<!--主体部分结束-->
+
+
+
+<script src="http://time.tianqi.com/static/js/jQuery.js"></script>
+<script src="http://time.tianqi.com/static/js/time.js"></script>
+<script language=javascript>
+    var t0= "1638325913014";
+    nyear="2021";
+    nmonth="12";
+    nday="01";
+
+    nhrs= "10";
+    nmin="31";
+    nsec="52";
+    s=document.URL;pos=s.indexOf("#");
+    fstyle=decodeURI(s.substring(pos+1,s.length));
+
+	var tt = parseInt(t0.substring(0, 10));
+	var i=0;
+	function l(){today=new Date();document.getElementsByClassName("computed_time")[0].innerHTML= today.toLocaleString();}
+	setInterval("l()",1000);
+</script>
+
+<script language="javascript">
+    var hzWeek= new Array("日","一","二","三","四","五","六","日");
+    nextday=false;
+    function cweekday(wday){
+        return hzWeek[wday];
+    }
+    function shapetime(vhrs){
+        if(vhrs<=9)vhrs="0"+vhrs;
+        return vhrs
+    }
+    last0=t0;
+    var dectime=new Date(nyear,nmonth-1,nday,nhrs,nmin,nsec).getTime()-t0;
+    function NewTick(){
+        noww=new Date();
+        t1=noww.getTime();
+        if(t1<last0||((t1-last0)>45000&&last0!=t0)){
+            t1=last0-0+500;
+        }
+        last0=t1;
+        noww.setTime(t1+dectime);
+        if(noww.getDate()!=nday){nyear=noww.getFullYear();nmonth=noww.getMonth()+1;nwday=noww.getDay();nday=noww.getDate();nextday=true;}nhrs=noww.getHours();nmin=noww.getMinutes();nsec=noww.getSeconds();
+    }
+    function gettimestr(){
+        return nyear+'年'+nmonth+'月'+nday+'日'+'星期'+cweekday(nwday)+"<br>"+shapetime(nhrs,nmin,nsec);
+    }
+
+</script>
+
+<script language="Javascript">
+    function Draw(){
+        NewTick();
+
+        // s=nyear+'年'+nmonth+'月'+nday+'日 '+'星期'+cweekday(nwday)+' ';
+        document.getElementsByClassName("hour_box")[0].innerHTML=shapetime(nhrs);
+        document.getElementsByClassName("minute_box")[0].innerHTML=shapetime(nmin);
+        document.getElementsByClassName("seconds_box")[0].innerHTML=shapetime(nsec);
+        setTimeout("Draw()",500);
+    }
+    Draw();
+
+    $(".headerMenu").click(function () {
+        $("#btnnavbox").css("display","block");
+    })
+    $("#btnnavclose").click(function () {
+        $("#btnnavbox").css("display","none");
+    })
+</script>
+<script language="JavaScript">
+
+    var timerID; 
+    var past_time=0;
+    function tzone(ts) {this.ct = new Date(0); this.ts = ts; }
+
+    function UpdateClocks() {past_time++;
+        var ct = new Array(new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912),new tzone(1638325912));
+        var dt = new Date() ;
+        var startDST = new Date(dt.getFullYear(), 3, 1) ;
+        while (startDST.getDay() != 0) startDST.setDate(startDST.getDate() + 1) ;
+        var endDST = new Date(dt.getFullYear(), 9, 31) ;
+        while (endDST.getDay() != 0) endDST.setDate(endDST.getDate() - 1) ;
+        var ds_active ;
+        if (startDST < dt && dt < endDST) ds_active = 1; else ds_active = 0;
+        var printstr = "";
+        gmdt = new Date();
+        for (n=0 ; n<ct.length ; n++) {
+            ct[n].ct = new Date((ct[n].ts+past_time) * 1000) ;
+        };
+            document.getElementById('Clockk0').innerHTML = ClockString(ct[0].ct);
+            document.getElementById('Clockk1').innerHTML = ClockString(ct[1].ct);
+            document.getElementById('Clockk2').innerHTML = ClockString(ct[2].ct);
+            document.getElementById('Clockk3').innerHTML = ClockString(ct[3].ct);
+            document.getElementById('Clockk4').innerHTML = ClockString(ct[4].ct);
+            document.getElementById('Clockk5').innerHTML = ClockString(ct[5].ct);
+            document.getElementById('Clockk6').innerHTML = ClockString(ct[6].ct);
+            document.getElementById('Clockk7').innerHTML = ClockString(ct[7].ct);
+            document.getElementById('Clockk8').innerHTML = ClockString(ct[8].ct);
+            document.getElementById('Clockk9').innerHTML = ClockString(ct[9].ct);
+            document.getElementById('Clockk10').innerHTML = ClockString(ct[10].ct);
+            document.getElementById('Clockk11').innerHTML = ClockString(ct[11].ct);
+            document.getElementById('Clockk12').innerHTML = ClockString(ct[12].ct);
+            document.getElementById('Clockk13').innerHTML = ClockString(ct[13].ct);
+            document.getElementById('Clockk14').innerHTML = ClockString(ct[14].ct);
+            document.getElementById('Clockk15').innerHTML = ClockString(ct[15].ct);
+            document.getElementById('Clockk16').innerHTML = ClockString(ct[16].ct);
+            document.getElementById('Clockk17').innerHTML = ClockString(ct[17].ct);
+            document.getElementById('Clockk18').innerHTML = ClockString(ct[18].ct);
+            document.getElementById('Clockk19').innerHTML = ClockString(ct[19].ct);
+            document.getElementById('Clockk20').innerHTML = ClockString(ct[20].ct);
+            document.getElementById('Clockk21').innerHTML = ClockString(ct[21].ct);
+            document.getElementById('Clockk22').innerHTML = ClockString(ct[22].ct);
+            document.getElementById('Clockk23').innerHTML = ClockString(ct[23].ct);
+            document.getElementById('Clockk24').innerHTML = ClockString(ct[24].ct);
+            document.getElementById('Clockk25').innerHTML = ClockString(ct[25].ct);
+            document.getElementById('Clockk26').innerHTML = ClockString(ct[26].ct);
+            document.getElementById('Clockk27').innerHTML = ClockString(ct[27].ct);
+            document.getElementById('Clockk28').innerHTML = ClockString(ct[28].ct);
+            document.getElementById('Clockk29').innerHTML = ClockString(ct[29].ct);
+            document.getElementById('Clockk30').innerHTML = ClockString(ct[30].ct);
+            document.getElementById('Clockk31').innerHTML = ClockString(ct[31].ct);
+            document.getElementById('Clockk32').innerHTML = ClockString(ct[32].ct);
+            document.getElementById('Clockk33').innerHTML = ClockString(ct[33].ct);
+            document.getElementById('Clockk34').innerHTML = ClockString(ct[34].ct);
+            document.getElementById('Clockk35').innerHTML = ClockString(ct[35].ct);
+            document.getElementById('Clockk36').innerHTML = ClockString(ct[36].ct);
+            document.getElementById('Clockk37').innerHTML = ClockString(ct[37].ct);
+            document.getElementById('Clockk38').innerHTML = ClockString(ct[38].ct);
+            document.getElementById('Clockk39').innerHTML = ClockString(ct[39].ct);
+            document.getElementById('Clockk40').innerHTML = ClockString(ct[40].ct);
+            document.getElementById('Clockk41').innerHTML = ClockString(ct[41].ct);
+            document.getElementById('Clockk42').innerHTML = ClockString(ct[42].ct);
+            document.getElementById('Clockk43').innerHTML = ClockString(ct[43].ct);
+            document.getElementById('Clockk44').innerHTML = ClockString(ct[44].ct);
+            document.getElementById('Clockk45').innerHTML = ClockString(ct[45].ct);
+            document.getElementById('Clockk46').innerHTML = ClockString(ct[46].ct);
+            document.getElementById('Clockk47').innerHTML = ClockString(ct[47].ct);
+            document.getElementById('Clockk48').innerHTML = ClockString(ct[48].ct);
+            document.getElementById('Clockk49').innerHTML = ClockString(ct[49].ct);
+            document.getElementById('Clockk50').innerHTML = ClockString(ct[50].ct);
+            document.getElementById('Clockk51').innerHTML = ClockString(ct[51].ct);
+            document.getElementById('Clockk52').innerHTML = ClockString(ct[52].ct);
+            document.getElementById('Clockk53').innerHTML = ClockString(ct[53].ct);
+            document.getElementById('Clockk54').innerHTML = ClockString(ct[54].ct);
+            document.getElementById('Clockk55').innerHTML = ClockString(ct[55].ct);
+            document.getElementById('Clockk56').innerHTML = ClockString(ct[56].ct);
+            document.getElementById('Clockk57').innerHTML = ClockString(ct[57].ct);
+            document.getElementById('Clockk58').innerHTML = ClockString(ct[58].ct);
+            document.getElementById('Clockk59').innerHTML = ClockString(ct[59].ct);
+            document.getElementById('Clockk60').innerHTML = ClockString(ct[60].ct);
+            document.getElementById('Clockk61').innerHTML = ClockString(ct[61].ct);
+            document.getElementById('Clockk62').innerHTML = ClockString(ct[62].ct);
+            document.getElementById('Clockk63').innerHTML = ClockString(ct[63].ct);
+            document.getElementById('Clockk64').innerHTML = ClockString(ct[64].ct);
+            document.getElementById('Clockk65').innerHTML = ClockString(ct[65].ct);
+            document.getElementById('Clockk66').innerHTML = ClockString(ct[66].ct);
+            document.getElementById('Clockk67').innerHTML = ClockString(ct[67].ct);
+            document.getElementById('Clockk68').innerHTML = ClockString(ct[68].ct);
+            document.getElementById('Clockk69').innerHTML = ClockString(ct[69].ct);
+            document.getElementById('Clockk70').innerHTML = ClockString(ct[70].ct);
+            document.getElementById('Clockk71').innerHTML = ClockString(ct[71].ct);
+            document.getElementById('Clockk72').innerHTML = ClockString(ct[72].ct);
+            document.getElementById('Clockk73').innerHTML = ClockString(ct[73].ct);
+            document.getElementById('Clockk74').innerHTML = ClockString(ct[74].ct);
+            document.getElementById('Clockk75').innerHTML = ClockString(ct[75].ct);
+            document.getElementById('Clockk76').innerHTML = ClockString(ct[76].ct);
+            document.getElementById('Clockk77').innerHTML = ClockString(ct[77].ct);
+            document.getElementById('Clockk78').innerHTML = ClockString(ct[78].ct);
+            document.getElementById('Clockk79').innerHTML = ClockString(ct[79].ct);
+            document.getElementById('Clockk80').innerHTML = ClockString(ct[80].ct);
+            document.getElementById('Clockk81').innerHTML = ClockString(ct[81].ct);
+            document.getElementById('Clockk82').innerHTML = ClockString(ct[82].ct);
+            document.getElementById('Clockk83').innerHTML = ClockString(ct[83].ct);
+            document.getElementById('Clockk84').innerHTML = ClockString(ct[84].ct);
+            document.getElementById('Clockk85').innerHTML = ClockString(ct[85].ct);
+            document.getElementById('Clockk86').innerHTML = ClockString(ct[86].ct);
+            document.getElementById('Clockk87').innerHTML = ClockString(ct[87].ct);
+            document.getElementById('Clockk88').innerHTML = ClockString(ct[88].ct);
+            document.getElementById('Clockk89').innerHTML = ClockString(ct[89].ct);
+            document.getElementById('Clockk90').innerHTML = ClockString(ct[90].ct);
+            document.getElementById('Clockk91').innerHTML = ClockString(ct[91].ct);
+            document.getElementById('Clockk92').innerHTML = ClockString(ct[92].ct);
+            document.getElementById('Clockk93').innerHTML = ClockString(ct[93].ct);
+            document.getElementById('Clockk94').innerHTML = ClockString(ct[94].ct);
+            document.getElementById('Clockk95').innerHTML = ClockString(ct[95].ct);
+            document.getElementById('Clockk96').innerHTML = ClockString(ct[96].ct);
+            document.getElementById('Clockk97').innerHTML = ClockString(ct[97].ct);
+            document.getElementById('Clockk98').innerHTML = ClockString(ct[98].ct);
+            document.getElementById('Clockk99').innerHTML = ClockString(ct[99].ct);
+            document.getElementById('Clockk100').innerHTML = ClockString(ct[100].ct);
+            document.getElementById('Clockk101').innerHTML = ClockString(ct[101].ct);
+            document.getElementById('Clockk102').innerHTML = ClockString(ct[102].ct);
+            document.getElementById('Clockk103').innerHTML = ClockString(ct[103].ct);
+            document.getElementById('Clockk104').innerHTML = ClockString(ct[104].ct);
+            document.getElementById('Clockk105').innerHTML = ClockString(ct[105].ct);
+            document.getElementById('Clockk106').innerHTML = ClockString(ct[106].ct);
+            document.getElementById('Clockk107').innerHTML = ClockString(ct[107].ct);
+            document.getElementById('Clockk108').innerHTML = ClockString(ct[108].ct);
+            document.getElementById('Clockk109').innerHTML = ClockString(ct[109].ct);
+            document.getElementById('Clockk110').innerHTML = ClockString(ct[110].ct);
+            document.getElementById('Clockk111').innerHTML = ClockString(ct[111].ct);
+            document.getElementById('Clockk112').innerHTML = ClockString(ct[112].ct);
+            document.getElementById('Clockk113').innerHTML = ClockString(ct[113].ct);
+            document.getElementById('Clockk114').innerHTML = ClockString(ct[114].ct);
+            document.getElementById('Clockk115').innerHTML = ClockString(ct[115].ct);
+            document.getElementById('Clockk116').innerHTML = ClockString(ct[116].ct);
+            document.getElementById('Clockk117').innerHTML = ClockString(ct[117].ct);
+            document.getElementById('Clockk118').innerHTML = ClockString(ct[118].ct);
+            document.getElementById('Clockk119').innerHTML = ClockString(ct[119].ct);
+            document.getElementById('Clockk120').innerHTML = ClockString(ct[120].ct);
+            document.getElementById('Clockk121').innerHTML = ClockString(ct[121].ct);
+            document.getElementById('Clockk122').innerHTML = ClockString(ct[122].ct);
+            document.getElementById('Clockk123').innerHTML = ClockString(ct[123].ct);
+            document.getElementById('Clockk124').innerHTML = ClockString(ct[124].ct);
+            document.getElementById('Clockk125').innerHTML = ClockString(ct[125].ct);
+            document.getElementById('Clockk126').innerHTML = ClockString(ct[126].ct);
+            document.getElementById('Clockk127').innerHTML = ClockString(ct[127].ct);
+            document.getElementById('Clockk128').innerHTML = ClockString(ct[128].ct);
+            document.getElementById('Clockk129').innerHTML = ClockString(ct[129].ct);
+            document.getElementById('Clockk130').innerHTML = ClockString(ct[130].ct);
+            document.getElementById('Clockk131').innerHTML = ClockString(ct[131].ct);
+            document.getElementById('Clockk132').innerHTML = ClockString(ct[132].ct);
+            document.getElementById('Clockk133').innerHTML = ClockString(ct[133].ct);
+            document.getElementById('Clockk134').innerHTML = ClockString(ct[134].ct);
+            document.getElementById('Clockk135').innerHTML = ClockString(ct[135].ct);
+            document.getElementById('Clockk136').innerHTML = ClockString(ct[136].ct);
+            document.getElementById('Clockk137').innerHTML = ClockString(ct[137].ct);
+            document.getElementById('Clockk138').innerHTML = ClockString(ct[138].ct);
+            document.getElementById('Clockk139').innerHTML = ClockString(ct[139].ct);
+            document.getElementById('Clockk140').innerHTML = ClockString(ct[140].ct);
+            document.getElementById('Clockk141').innerHTML = ClockString(ct[141].ct);
+            document.getElementById('Clockk142').innerHTML = ClockString(ct[142].ct);
+            document.getElementById('Clockk143').innerHTML = ClockString(ct[143].ct);
+            document.getElementById('Clockk144').innerHTML = ClockString(ct[144].ct);
+            document.getElementById('Clockk145').innerHTML = ClockString(ct[145].ct);
+            document.getElementById('Clockk146').innerHTML = ClockString(ct[146].ct);
+            document.getElementById('Clockk147').innerHTML = ClockString(ct[147].ct);
+            document.getElementById('Clockk148').innerHTML = ClockString(ct[148].ct);
+            document.getElementById('Clockk149').innerHTML = ClockString(ct[149].ct);
+            document.getElementById('Clockk150').innerHTML = ClockString(ct[150].ct);
+            document.getElementById('Clockk151').innerHTML = ClockString(ct[151].ct);
+            document.getElementById('Clockk152').innerHTML = ClockString(ct[152].ct);
+            document.getElementById('Clockk153').innerHTML = ClockString(ct[153].ct);
+            document.getElementById('Clockk154').innerHTML = ClockString(ct[154].ct);
+            document.getElementById('Clockk155').innerHTML = ClockString(ct[155].ct);
+            document.getElementById('Clockk156').innerHTML = ClockString(ct[156].ct);
+            document.getElementById('Clockk157').innerHTML = ClockString(ct[157].ct);
+            document.getElementById('Clockk158').innerHTML = ClockString(ct[158].ct);
+            document.getElementById('Clockk159').innerHTML = ClockString(ct[159].ct);
+            document.getElementById('Clockk160').innerHTML = ClockString(ct[160].ct);
+            document.getElementById('Clockk161').innerHTML = ClockString(ct[161].ct);
+            document.getElementById('Clockk162').innerHTML = ClockString(ct[162].ct);
+            document.getElementById('Clockk163').innerHTML = ClockString(ct[163].ct);
+            document.getElementById('Clockk164').innerHTML = ClockString(ct[164].ct);
+            document.getElementById('Clockk165').innerHTML = ClockString(ct[165].ct);
+            document.getElementById('Clockk166').innerHTML = ClockString(ct[166].ct);
+            document.getElementById('Clockk167').innerHTML = ClockString(ct[167].ct);
+            document.getElementById('Clockk168').innerHTML = ClockString(ct[168].ct);
+            document.getElementById('Clockk169').innerHTML = ClockString(ct[169].ct);
+            document.getElementById('Clockk170').innerHTML = ClockString(ct[170].ct);
+            document.getElementById('Clockk171').innerHTML = ClockString(ct[171].ct);
+            document.getElementById('Clockk172').innerHTML = ClockString(ct[172].ct);
+            document.getElementById('Clockk173').innerHTML = ClockString(ct[173].ct);
+            document.getElementById('Clockk174').innerHTML = ClockString(ct[174].ct);
+            document.getElementById('Clockk175').innerHTML = ClockString(ct[175].ct);
+            document.getElementById('Clockk176').innerHTML = ClockString(ct[176].ct);
+            document.getElementById('Clockk177').innerHTML = ClockString(ct[177].ct);
+            document.getElementById('Clockk178').innerHTML = ClockString(ct[178].ct);
+            document.getElementById('Clockk179').innerHTML = ClockString(ct[179].ct);
+            document.getElementById('Clockk180').innerHTML = ClockString(ct[180].ct);
+            document.getElementById('Clockk181').innerHTML = ClockString(ct[181].ct);
+            document.getElementById('Clockk182').innerHTML = ClockString(ct[182].ct);
+            document.getElementById('Clockk183').innerHTML = ClockString(ct[183].ct);
+            document.getElementById('Clockk184').innerHTML = ClockString(ct[184].ct);
+            document.getElementById('Clockk185').innerHTML = ClockString(ct[185].ct);
+            document.getElementById('Clockk186').innerHTML = ClockString(ct[186].ct);
+            document.getElementById('Clockk187').innerHTML = ClockString(ct[187].ct);
+            document.getElementById('Clockk188').innerHTML = ClockString(ct[188].ct);
+            document.getElementById('Clockk189').innerHTML = ClockString(ct[189].ct);
+            document.getElementById('Clockk190').innerHTML = ClockString(ct[190].ct);
+            document.getElementById('Clockk191').innerHTML = ClockString(ct[191].ct);
+            document.getElementById('Clockk192').innerHTML = ClockString(ct[192].ct);
+            document.getElementById('Clockk193').innerHTML = ClockString(ct[193].ct);
+            document.getElementById('Clockk194').innerHTML = ClockString(ct[194].ct);
+            document.getElementById('Clockk195').innerHTML = ClockString(ct[195].ct);
+            document.getElementById('Clockk196').innerHTML = ClockString(ct[196].ct);
+            document.getElementById('Clockk197').innerHTML = ClockString(ct[197].ct);
+            document.getElementById('Clockk198').innerHTML = ClockString(ct[198].ct);
+            document.getElementById('Clockk199').innerHTML = ClockString(ct[199].ct);
+            document.getElementById('Clockk200').innerHTML = ClockString(ct[200].ct);
+            document.getElementById('Clockk201').innerHTML = ClockString(ct[201].ct);
+            document.getElementById('Clockk202').innerHTML = ClockString(ct[202].ct);
+            document.getElementById('Clockk203').innerHTML = ClockString(ct[203].ct);
+            document.getElementById('Clockk204').innerHTML = ClockString(ct[204].ct);
+            document.getElementById('Clockk205').innerHTML = ClockString(ct[205].ct);
+            document.getElementById('Clockk206').innerHTML = ClockString(ct[206].ct);
+            document.getElementById('Clockk207').innerHTML = ClockString(ct[207].ct);
+            document.getElementById('Clockk208').innerHTML = ClockString(ct[208].ct);
+            document.getElementById('Clockk209').innerHTML = ClockString(ct[209].ct);
+            document.getElementById('Clockk210').innerHTML = ClockString(ct[210].ct);
+            document.getElementById('Clockk211').innerHTML = ClockString(ct[211].ct);
+            document.getElementById('Clockk212').innerHTML = ClockString(ct[212].ct);
+            document.getElementById('Clockk213').innerHTML = ClockString(ct[213].ct);
+            document.getElementById('Clockk214').innerHTML = ClockString(ct[214].ct);
+            document.getElementById('Clockk215').innerHTML = ClockString(ct[215].ct);
+            document.getElementById('Clockk216').innerHTML = ClockString(ct[216].ct);
+            document.getElementById('Clockk217').innerHTML = ClockString(ct[217].ct);
+            document.getElementById('Clockk218').innerHTML = ClockString(ct[218].ct);
+            document.getElementById('Clockk219').innerHTML = ClockString(ct[219].ct);
+            document.getElementById('Clockk220').innerHTML = ClockString(ct[220].ct);
+            document.getElementById('Clockk221').innerHTML = ClockString(ct[221].ct);
+            document.getElementById('Clockk222').innerHTML = ClockString(ct[222].ct);
+            document.getElementById('Clockk223').innerHTML = ClockString(ct[223].ct);
+            document.getElementById('Clockk224').innerHTML = ClockString(ct[224].ct);
+            document.getElementById('Clockk225').innerHTML = ClockString(ct[225].ct);
+            document.getElementById('Clockk226').innerHTML = ClockString(ct[226].ct);
+            document.getElementById('Clockk227').innerHTML = ClockString(ct[227].ct);
+            document.getElementById('Clockk228').innerHTML = ClockString(ct[228].ct);
+            document.getElementById('Clockk229').innerHTML = ClockString(ct[229].ct);
+            document.getElementById('Clockk230').innerHTML = ClockString(ct[230].ct);
+            document.getElementById('Clockk231').innerHTML = ClockString(ct[231].ct);
+            document.getElementById('Clockk232').innerHTML = ClockString(ct[232].ct);
+            document.getElementById('Clockk233').innerHTML = ClockString(ct[233].ct);
+            document.getElementById('Clockk234').innerHTML = ClockString(ct[234].ct);
+            document.getElementById('Clockk235').innerHTML = ClockString(ct[235].ct);
+            document.getElementById('Clockk236').innerHTML = ClockString(ct[236].ct);
+            document.getElementById('Clockk237').innerHTML = ClockString(ct[237].ct);
+            document.getElementById('Clockk238').innerHTML = ClockString(ct[238].ct);
+            document.getElementById('Clockk239').innerHTML = ClockString(ct[239].ct);
+            document.getElementById('Clockk240').innerHTML = ClockString(ct[240].ct);
+            document.getElementById('Clockk241').innerHTML = ClockString(ct[241].ct);
+            document.getElementById('Clockk242').innerHTML = ClockString(ct[242].ct);
+            document.getElementById('Clockk243').innerHTML = ClockString(ct[243].ct);
+            document.getElementById('Clockk244').innerHTML = ClockString(ct[244].ct);
+            document.getElementById('Clockk245').innerHTML = ClockString(ct[245].ct);
+            document.getElementById('Clockk246').innerHTML = ClockString(ct[246].ct);
+            document.getElementById('Clockk247').innerHTML = ClockString(ct[247].ct);
+            document.getElementById('Clockk248').innerHTML = ClockString(ct[248].ct);
+            document.getElementById('Clockk249').innerHTML = ClockString(ct[249].ct);
+            document.getElementById('Clockk250').innerHTML = ClockString(ct[250].ct);
+            document.getElementById('Clockk251').innerHTML = ClockString(ct[251].ct);
+            document.getElementById('Clockk252').innerHTML = ClockString(ct[252].ct);
+            document.getElementById('Clockk253').innerHTML = ClockString(ct[253].ct);
+            document.getElementById('Clockk254').innerHTML = ClockString(ct[254].ct);
+            document.getElementById('Clockk255').innerHTML = ClockString(ct[255].ct);
+            document.getElementById('Clockk256').innerHTML = ClockString(ct[256].ct);
+            document.getElementById('Clockk257').innerHTML = ClockString(ct[257].ct);
+            document.getElementById('Clockk258').innerHTML = ClockString(ct[258].ct);
+            document.getElementById('Clockk259').innerHTML = ClockString(ct[259].ct);
+            document.getElementById('Clockk260').innerHTML = ClockString(ct[260].ct);
+            document.getElementById('Clockk261').innerHTML = ClockString(ct[261].ct);
+            document.getElementById('Clockk262').innerHTML = ClockString(ct[262].ct);
+            document.getElementById('Clockk263').innerHTML = ClockString(ct[263].ct);
+            document.getElementById('Clockk264').innerHTML = ClockString(ct[264].ct);
+            document.getElementById('Clockk265').innerHTML = ClockString(ct[265].ct);
+            document.getElementById('Clockk266').innerHTML = ClockString(ct[266].ct);
+            document.getElementById('Clockk267').innerHTML = ClockString(ct[267].ct);
+            document.getElementById('Clockk268').innerHTML = ClockString(ct[268].ct);
+            document.getElementById('Clockk269').innerHTML = ClockString(ct[269].ct);
+            document.getElementById('Clockk270').innerHTML = ClockString(ct[270].ct);
+            document.getElementById('Clockk271').innerHTML = ClockString(ct[271].ct);
+            document.getElementById('Clockk272').innerHTML = ClockString(ct[272].ct);
+            document.getElementById('Clockk273').innerHTML = ClockString(ct[273].ct);
+            document.getElementById('Clockk274').innerHTML = ClockString(ct[274].ct);
+            document.getElementById('Clockk275').innerHTML = ClockString(ct[275].ct);
+            document.getElementById('Clockk276').innerHTML = ClockString(ct[276].ct);
+            document.getElementById('Clockk277').innerHTML = ClockString(ct[277].ct);
+            document.getElementById('Clockk278').innerHTML = ClockString(ct[278].ct);
+            document.getElementById('Clockk279').innerHTML = ClockString(ct[279].ct);
+            document.getElementById('Clockk280').innerHTML = ClockString(ct[280].ct);
+            document.getElementById('Clockk281').innerHTML = ClockString(ct[281].ct);
+            document.getElementById('Clockk282').innerHTML = ClockString(ct[282].ct);
+            document.getElementById('Clockk283').innerHTML = ClockString(ct[283].ct);
+            document.getElementById('Clockk284').innerHTML = ClockString(ct[284].ct);
+            document.getElementById('Clockk285').innerHTML = ClockString(ct[285].ct);
+            document.getElementById('Clockk286').innerHTML = ClockString(ct[286].ct);
+            document.getElementById('Clockk287').innerHTML = ClockString(ct[287].ct);
+            document.getElementById('Clockk288').innerHTML = ClockString(ct[288].ct);
+            document.getElementById('Clockk289').innerHTML = ClockString(ct[289].ct);
+            document.getElementById('Clockk290').innerHTML = ClockString(ct[290].ct);
+            document.getElementById('Clockk291').innerHTML = ClockString(ct[291].ct);
+            document.getElementById('Clockk292').innerHTML = ClockString(ct[292].ct);
+            document.getElementById('Clockk293').innerHTML = ClockString(ct[293].ct);
+            document.getElementById('Clockk294').innerHTML = ClockString(ct[294].ct);
+            document.getElementById('Clockk295').innerHTML = ClockString(ct[295].ct);
+            document.getElementById('Clockk296').innerHTML = ClockString(ct[296].ct);
+            document.getElementById('Clockk297').innerHTML = ClockString(ct[297].ct);
+            document.getElementById('Clockk298').innerHTML = ClockString(ct[298].ct);
+            document.getElementById('Clockk299').innerHTML = ClockString(ct[299].ct);
+            document.getElementById('Clockk300').innerHTML = ClockString(ct[300].ct);
+            document.getElementById('Clockk301').innerHTML = ClockString(ct[301].ct);
+            document.getElementById('Clockk302').innerHTML = ClockString(ct[302].ct);
+            document.getElementById('Clockk303').innerHTML = ClockString(ct[303].ct);
+            document.getElementById('Clockk304').innerHTML = ClockString(ct[304].ct);
+            document.getElementById('Clockk305').innerHTML = ClockString(ct[305].ct);
+            document.getElementById('Clockk306').innerHTML = ClockString(ct[306].ct);
+            document.getElementById('Clockk307').innerHTML = ClockString(ct[307].ct);
+            document.getElementById('Clockk308').innerHTML = ClockString(ct[308].ct);
+            document.getElementById('Clockk309').innerHTML = ClockString(ct[309].ct);
+            document.getElementById('Clockk310').innerHTML = ClockString(ct[310].ct);
+            document.getElementById('Clockk311').innerHTML = ClockString(ct[311].ct);
+            document.getElementById('Clockk312').innerHTML = ClockString(ct[312].ct);
+            document.getElementById('Clockk313').innerHTML = ClockString(ct[313].ct);
+            document.getElementById('Clockk314').innerHTML = ClockString(ct[314].ct);
+            document.getElementById('Clockk315').innerHTML = ClockString(ct[315].ct);
+            document.getElementById('Clockk316').innerHTML = ClockString(ct[316].ct);
+            document.getElementById('Clockk317').innerHTML = ClockString(ct[317].ct);
+            document.getElementById('Clockk318').innerHTML = ClockString(ct[318].ct);
+            document.getElementById('Clockk319').innerHTML = ClockString(ct[319].ct);
+            document.getElementById('Clockk320').innerHTML = ClockString(ct[320].ct);
+            document.getElementById('Clockk321').innerHTML = ClockString(ct[321].ct);
+            document.getElementById('Clockk322').innerHTML = ClockString(ct[322].ct);
+            document.getElementById('Clockk323').innerHTML = ClockString(ct[323].ct);
+            document.getElementById('Clockk324').innerHTML = ClockString(ct[324].ct);
+            document.getElementById('Clockk325').innerHTML = ClockString(ct[325].ct);
+            document.getElementById('Clockk326').innerHTML = ClockString(ct[326].ct);
+            document.getElementById('Clockk327').innerHTML = ClockString(ct[327].ct);
+            document.getElementById('Clockk328').innerHTML = ClockString(ct[328].ct);
+            document.getElementById('Clockk329').innerHTML = ClockString(ct[329].ct);
+            document.getElementById('Clockk330').innerHTML = ClockString(ct[330].ct);
+            document.getElementById('Clockk331').innerHTML = ClockString(ct[331].ct);
+            document.getElementById('Clockk332').innerHTML = ClockString(ct[332].ct);
+            document.getElementById('Clockk333').innerHTML = ClockString(ct[333].ct);
+            document.getElementById('Clockk334').innerHTML = ClockString(ct[334].ct);
+            document.getElementById('Clockk335').innerHTML = ClockString(ct[335].ct);
+            document.getElementById('Clockk336').innerHTML = ClockString(ct[336].ct);
+            document.getElementById('Clockk337').innerHTML = ClockString(ct[337].ct);
+            document.getElementById('Clockk338').innerHTML = ClockString(ct[338].ct);
+            document.getElementById('Clockk339').innerHTML = ClockString(ct[339].ct);
+            document.getElementById('Clockk340').innerHTML = ClockString(ct[340].ct);
+            document.getElementById('Clockk341').innerHTML = ClockString(ct[341].ct);
+            document.getElementById('Clockk342').innerHTML = ClockString(ct[342].ct);
+            document.getElementById('Clockk343').innerHTML = ClockString(ct[343].ct);
+            document.getElementById('Clockk344').innerHTML = ClockString(ct[344].ct);
+            document.getElementById('Clockk345').innerHTML = ClockString(ct[345].ct);
+            document.getElementById('Clockk346').innerHTML = ClockString(ct[346].ct);
+            document.getElementById('Clockk347').innerHTML = ClockString(ct[347].ct);
+            document.getElementById('Clockk348').innerHTML = ClockString(ct[348].ct);
+            document.getElementById('Clockk349').innerHTML = ClockString(ct[349].ct);
+            document.getElementById('Clockk350').innerHTML = ClockString(ct[350].ct);
+            document.getElementById('Clockk351').innerHTML = ClockString(ct[351].ct);
+            document.getElementById('Clockk352').innerHTML = ClockString(ct[352].ct);
+            document.getElementById('Clockk353').innerHTML = ClockString(ct[353].ct);
+            document.getElementById('Clockk354').innerHTML = ClockString(ct[354].ct);
+            document.getElementById('Clockk355').innerHTML = ClockString(ct[355].ct);
+            document.getElementById('Clockk356').innerHTML = ClockString(ct[356].ct);
+            document.getElementById('Clockk357').innerHTML = ClockString(ct[357].ct);
+            document.getElementById('Clockk358').innerHTML = ClockString(ct[358].ct);
+            document.getElementById('Clockk359').innerHTML = ClockString(ct[359].ct);
+            document.getElementById('Clockk360').innerHTML = ClockString(ct[360].ct);
+            document.getElementById('Clockk361').innerHTML = ClockString(ct[361].ct);
+            document.getElementById('Clockk362').innerHTML = ClockString(ct[362].ct);
+            document.getElementById('Clockk363').innerHTML = ClockString(ct[363].ct);
+            document.getElementById('Clockk364').innerHTML = ClockString(ct[364].ct);
+            document.getElementById('Clockk365').innerHTML = ClockString(ct[365].ct);
+            document.getElementById('Clockk366').innerHTML = ClockString(ct[366].ct);
+            document.getElementById('Clockk367').innerHTML = ClockString(ct[367].ct);
+            document.getElementById('Clockk368').innerHTML = ClockString(ct[368].ct);
+            document.getElementById('Clockk369').innerHTML = ClockString(ct[369].ct);
+            document.getElementById('Clockk370').innerHTML = ClockString(ct[370].ct);
+            document.getElementById('Clockk371').innerHTML = ClockString(ct[371].ct);
+            document.getElementById('Clockk372').innerHTML = ClockString(ct[372].ct);
+            document.getElementById('Clockk373').innerHTML = ClockString(ct[373].ct);
+            document.getElementById('Clockk374').innerHTML = ClockString(ct[374].ct);
+            document.getElementById('Clockk375').innerHTML = ClockString(ct[375].ct);
+            document.getElementById('Clockk376').innerHTML = ClockString(ct[376].ct);
+            document.getElementById('Clockk377').innerHTML = ClockString(ct[377].ct);
+            document.getElementById('Clockk378').innerHTML = ClockString(ct[378].ct);
+            document.getElementById('Clockk379').innerHTML = ClockString(ct[379].ct);
+            document.getElementById('Clockk380').innerHTML = ClockString(ct[380].ct);
+            document.getElementById('Clockk381').innerHTML = ClockString(ct[381].ct);
+            document.getElementById('Clockk382').innerHTML = ClockString(ct[382].ct);
+            document.getElementById('Clockk383').innerHTML = ClockString(ct[383].ct);
+            document.getElementById('Clockk384').innerHTML = ClockString(ct[384].ct);
+            document.getElementById('Clockk385').innerHTML = ClockString(ct[385].ct);
+            document.getElementById('Clockk386').innerHTML = ClockString(ct[386].ct);
+            document.getElementById('Clockk387').innerHTML = ClockString(ct[387].ct);
+            document.getElementById('Clockk388').innerHTML = ClockString(ct[388].ct);
+            document.getElementById('Clockk389').innerHTML = ClockString(ct[389].ct);
+            document.getElementById('Clockk390').innerHTML = ClockString(ct[390].ct);
+            document.getElementById('Clockk391').innerHTML = ClockString(ct[391].ct);
+            document.getElementById('Clockk392').innerHTML = ClockString(ct[392].ct);
+            document.getElementById('Clockk393').innerHTML = ClockString(ct[393].ct);
+            document.getElementById('Clockk394').innerHTML = ClockString(ct[394].ct);
+            document.getElementById('Clockk395').innerHTML = ClockString(ct[395].ct);
+            document.getElementById('Clockk396').innerHTML = ClockString(ct[396].ct);
+            document.getElementById('Clockk397').innerHTML = ClockString(ct[397].ct);
+            document.getElementById('Clockk398').innerHTML = ClockString(ct[398].ct);
+            document.getElementById('Clockk399').innerHTML = ClockString(ct[399].ct);
+            document.getElementById('Clockk400').innerHTML = ClockString(ct[400].ct);
+            timerID = window.setTimeout("UpdateClocks()", 1001);}
+
+    function ClockString(dt) {
+        var stemp ;
+        var dt_year = dt.getUTCFullYear();
+        var dt_month = dt.getMonth() + 1;
+        var dt_day = dt.getDate();
+        var dt_hour = dt.getHours();
+        var dt_minute = dt.getMinutes();
+        var dt_second = dt.getSeconds();
+        dt_year = dt_year.toString();
+        if (dt_hour < 10) dt_hour = '0' + dt_hour ;
+        if (dt_minute < 10) dt_minute = '0' + dt_minute ;
+        if (dt_second < 10) dt_second = '0' + dt_second ;
+        stemp = dt_month + '月' + dt_day + '日';
+        stemp = stemp + ' ' + dt_hour + ":" + dt_minute + ":" + dt_second;
+        return stemp ;
+    }
+
+</script>
+</body>
+</html>
